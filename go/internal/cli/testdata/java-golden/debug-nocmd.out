@@ -1,0 +1,44 @@
+No command defined.
+
+
+Usage: cs [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    configure      Set the Carbyne Stack CLI default configuration
+      Usage: configure [options]
+        Options:
+          --help
+            Show help message on how to use and adapt the configuration.
+          show
+            Prints the CLI configuration that is currently in use.
+            Default: false
+
+    login      Login to the configured VCPs
+      Usage: login [options]
+        Options:
+          --help
+            Show help message on how to use the login command.
+
+    amphora      Create and retrieve secrets from Amphora service(s)
+      Usage: amphora <args>
+
+    castor      Upload to and download from Castor Service
+      Usage: castor <args>
+
+    ephemeral      Execute functions using Ephemeral
+      Usage: ephemeral <args>
+
+    thymus      Interact with the Thymus IAM subsystem
+      Usage: thymus <args>
+
+

@@ -1,0 +1,53 @@
+Unexpected error occurred
+io.carbynestack.cli.exceptions.CsCliException: Invalid UUID bad-uuid.
+
+
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:113)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)
+Caused by: com.beust.jcommander.ParameterException: Invalid UUID bad-uuid.
+	at io.carbynestack.cli.converter.UUIDTypeConverter.convert(UUIDTypeConverter.java:27)
+	at io.carbynestack.cli.converter.UUIDTypeConverter.convert(UUIDTypeConverter.java:17)
+	at com.beust.jcommander.JCommander.convertValue(JCommander.java:1472)
+	at com.beust.jcommander.JCommander$2.convert(JCommander.java:1455)
+	at com.beust.jcommander.converters.DefaultListConverter.convert(DefaultListConverter.java:32)
+	at com.beust.jcommander.converters.DefaultListConverter.convert(DefaultListConverter.java:13)
+	at com.beust.jcommander.JCommander.convertValue(JCommander.java:1472)
+	at com.beust.jcommander.ParameterDescription.addValue(ParameterDescription.java:238)
+	at com.beust.jcommander.JCommander.processFixedArity(JCommander.java:895)
+	at com.beust.jcommander.JCommander.processFixedArity(JCommander.java:870)
+	at com.beust.jcommander.JCommander.parseValues(JCommander.java:721)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:340)
+	at com.beust.jcommander.JCommander.parseValues(JCommander.java:787)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:340)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:319)
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:88)
+	... 3 more
+Usage: cs ephemeral [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    execute      Invokes an Ephemeral function with the given input secrets.
+      Usage: execute [options] APPLICATION_NAME
+        Options:
+          -t, --timeout
+            Maximum time allowed for the request in seconds.
+            Default: 10
+          -i, --input
+            UUID of an Amphora Secret used as secret input for the function
+			execution.
+			This option can be defined multiple times in order to to use
+			multiple secrets as input for the execution.
+            Default: []
+
+

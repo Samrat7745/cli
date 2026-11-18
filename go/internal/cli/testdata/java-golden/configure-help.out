@@ -1,0 +1,17 @@
+** Make sure to run configuration prior to the first Carbyne Stack CLI command execution ** 
+ 
+ This command will guide through a step by step configuration to match the VC's setup. 
+ While it is required to run the configuration at least once prior to the first command execution, it is possible to overload some settings using environment variables. 
+ The following environment variables can be used to adapt the configuration without overwriting the default config. 
+ - CS_PRIME 	 Modulus N as used by the MPC backend - CS_R 	 Auxiliary modulus R as used by the MPC backend - CS_R_INV 	 Multiplicative inverse for the auxiliary modulus R as used by the MPC backend 
+ - CS_NO_SSL_VALIDATION 	 Disable SSL certificate validation 
+ - CS_VCP_{n}_BASE_URL** 	 Base URL for the provider with ID "{n}" - CS_VCP_{n}_AMPHORA_URL* 	 Amphora Service URL for the provider with ID "{n}" 
+ - CS_VCP_{n}_CASTOR_URL* 	 Castor Service URL for the provider with ID "{n}" 
+ - CS_VCP_{n}_EPHEMERAL_URL* 	 Ephemeral Service URL for the provider with ID "{n}" 
+ - CS_VCP_{n}_OAUTH2_CLIENT_ID * 	 OAuth2 client identifier for the provider with ID "{n}" 
+ - CS_VCP_{n}_OAUTH2_CALLBACK_URL * 	 OAuth2 callback URL for the provider with ID "{n}" 
+ - CS_VCP_{n}_OAUTH2_AUTH_ENDPOINT_URI * 	 OAuth2 authorization endpoint URI for the provider with ID "{n}" 
+ - CS_VCP_{n}_OAUTH2_TOKEN_ENDPOINT_URI * 	 OAuth2 token endpoint URI for the provider with ID "{n}" 
+ 
+ * Please be aware, that only providers defined in the default configuration can be adapted using environment variables. It is not possible to add additional or remove existing providers. 
+ ** This variable is used during the configuration process only.

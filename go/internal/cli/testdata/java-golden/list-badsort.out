@@ -1,0 +1,10 @@
+An error ocurred while executing the given command:
+Invalid sorting criteria: key:DOWN
+io.carbynestack.cli.exceptions.CsCliRunnerException: Invalid sorting criteria: key:DOWN
+	at io.carbynestack.cli.client.amphora.command.ListSecretsAmphoraClientCliCommandRunner.getSorting(ListSecretsAmphoraClientCliCommandRunner.java:73)
+	at io.carbynestack.cli.client.amphora.command.ListSecretsAmphoraClientCliCommandRunner.run(ListSecretsAmphoraClientCliCommandRunner.java:36)
+	at io.carbynestack.cli.CsClientCli.execute(CsClientCli.java:151)
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:107)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)

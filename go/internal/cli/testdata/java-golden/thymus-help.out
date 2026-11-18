@@ -1,0 +1,27 @@
+Usage: cs thymus [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    list-policies      Returns all policies available within the Carbyne Stack Virtual Cloud.
+			This command will return the intersection of the policies registered
+			across all the VCPs in the VC.
+      Usage: list-policies [options]
+
+    get-policy      Returns the policy with the given name.
+			A Thymus policy name composed of a namespace and a name, e.g., 
+			"default-policies:donor-read.rego", where "default-policies" is the
+			namespace and "donor-read.rego" is the name.
+
+			This command verifies that the policy is consistent across all the VCPs.
+      Usage: get-policy [options] POLICY_ID
+
+

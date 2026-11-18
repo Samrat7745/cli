@@ -1,0 +1,41 @@
+#
+# Copyright (c) 2026 - for information on the respective copyright owner
+# see the NOTICE file and/or the repository https://github.com/carbynestack/cli.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+name: Go build and test (cli)
+on:
+  pull_request:
+    paths:
+      - 'go/**'
+      - 'src/main/resources/**'
+      - 'src/test/resources/**'
+      - '.github/workflows/go.build-and-test.yaml'
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'go/**'
+jobs:
+  go-test:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: go
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go/go.mod
+          cache-dependency-path: go/go.sum
+      - name: Format
+        run: test -z "$(gofmt -l .)"
+      - name: Vet
+        run: go vet ./...
+      - name: Tests (race detector)
+        run: go test -race -count=1 ./...
+      - name: Build
+        run: CGO_ENABLED=0 go build -trimpath -o cs ./cmd/cs

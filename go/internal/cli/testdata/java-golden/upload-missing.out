@@ -1,0 +1,62 @@
+Unexpected error occurred
+io.carbynestack.cli.exceptions.CsCliException: The following option is required: [-f | --tuple-file]
+
+
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:113)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)
+Caused by: com.beust.jcommander.ParameterException: The following option is required: [-f | --tuple-file]
+	at com.beust.jcommander.JCommander.validateOptions(JCommander.java:381)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:341)
+	at com.beust.jcommander.JCommander.parseValues(JCommander.java:787)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:340)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:319)
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:88)
+	... 3 more
+Usage: cs castor [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    upload-tuple      Upload a tuple file to Castor Service
+      Usage: upload-tuple [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+          -i, --chunk-id
+            Unique identifier as to be used by Castor
+			Default: <Random UUID>
+        * -f, --tuple-file
+            Tuple file path
+        * -t, --tuple-type
+            Tuple type, e.g., MULTIPLICATION_TRIPLE_GFP
+
+    get-telemetry      Download telemetry data
+      Usage: get-telemetry [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+          -i, --interval
+            Interval in seconds to get the telemetry data for
+
+    activate-chunk      Upload a tuple file to Castor Service
+      Usage: activate-chunk [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+        * -i, --chunk-id
+            Unique identifier of the tuple chunk
+
+

@@ -1,0 +1,46 @@
+Unexpected error occurred
+io.carbynestack.cli.exceptions.CsCliException: Invalid policy ID: invalid_policy
+
+
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:113)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)
+Caused by: com.beust.jcommander.ParameterException: Invalid policy ID: invalid_policy
+	at io.carbynestack.cli.client.thymus.converter.PolicyIDConverter.convert(PolicyIDConverter.java:27)
+	at io.carbynestack.cli.client.thymus.converter.PolicyIDConverter.convert(PolicyIDConverter.java:17)
+	at com.beust.jcommander.JCommander.convertValue(JCommander.java:1472)
+	at com.beust.jcommander.JCommander.parseValues(JCommander.java:761)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:340)
+	at com.beust.jcommander.JCommander.parseValues(JCommander.java:787)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:340)
+	at com.beust.jcommander.JCommander.parse(JCommander.java:319)
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:88)
+	... 3 more
+Usage: cs thymus [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    list-policies      Returns all policies available within the Carbyne Stack Virtual Cloud.
+			This command will return the intersection of the policies registered
+			across all the VCPs in the VC.
+      Usage: list-policies [options]
+
+    get-policy      Returns the policy with the given name.
+			A Thymus policy name composed of a namespace and a name, e.g., 
+			"default-policies:donor-read.rego", where "default-policies" is the
+			namespace and "donor-read.rego" is the name.
+
+			This command verifies that the policy is consistent across all the VCPs.
+      Usage: get-policy [options] POLICY_ID
+
+

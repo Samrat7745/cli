@@ -1,0 +1,10 @@
+An error ocurred while executing the given command:
+Unable to parse tag-filter: key=
+io.carbynestack.cli.exceptions.CsCliRunnerException: Unable to parse tag-filter: key=
+	at io.carbynestack.cli.client.amphora.command.ListSecretsAmphoraClientCliCommandRunner.getTagFilters(ListSecretsAmphoraClientCliCommandRunner.java:55)
+	at io.carbynestack.cli.client.amphora.command.ListSecretsAmphoraClientCliCommandRunner.run(ListSecretsAmphoraClientCliCommandRunner.java:37)
+	at io.carbynestack.cli.CsClientCli.execute(CsClientCli.java:151)
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:107)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)

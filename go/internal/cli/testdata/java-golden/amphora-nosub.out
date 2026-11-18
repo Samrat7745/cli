@@ -1,0 +1,113 @@
+Unexpected error occurred
+io.carbynestack.cli.exceptions.CsCliException: No command defined.
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:103)
+	at io.carbynestack.cli.CsClientCli.parse(CsClientCli.java:72)
+	at io.carbynestack.cli.CsCliApplication.run(CsCliApplication.java:115)
+	at io.carbynestack.cli.CsCliApplication.main(CsCliApplication.java:160)
+Caused by: java.lang.Throwable
+	at io.carbynestack.cli.CsClientCli.parseConfig(CsClientCli.java:102)
+	... 3 more
+Usage: cs amphora [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    create-secret      Creates a new Amphora secret with the given secret data.
+      Usage: create-secret [options] SECRET [SECRET... (type: Long)] 
+
+			Although it is mandatory to define at least one secret to be
+			shared within the new secret, secrets might also be passed on
+			StdIn (separated by new line) if omitted on command.
+
+        Options:
+          -i, --secret-id
+            UUID which will be used as unique identifier to store the secret.
+			Default: <Random UUID>
+          -t, --tag
+            A Tag that will be added to the given secret.
+			Format: <KEY>=<VALUE>
+
+    get-secret      Retrieve an secret from Amphora
+      Usage: get-secret [options] SECRET_ID
+
+    get-secrets      Lists all Secrets stored on the given Amphora service(s).
+      Usage: get-secrets [options]
+        Options:
+          -f, --tagfilter
+            Filter secrets based on their tags and the criteria provided.
+		When multiple filters are defined, they are joined via AND.
+		Can be in one of the following formats:
+			- key:value EQUAL Match
+			- key>value GREATER THAN (Assumes tag value is a numeric value)
+			- key<value LESS THAN (Assumes tag value is a numeric value)
+          -s, --sortBy
+            Sort output by given tag key.
+		Format: <KEY>:[ASC|DESC]
+		Examples:
+			type:ASC
+			creation-date:DESC
+          -l, --list-ids-only
+            Output secret IDs only
+            Default: false
+
+    create-tag      Adds a new Tag to the given Amphora secret
+      Usage: create-tag [options] TAG
+
+			Tag format: <KEY>=<VALUE>
+
+        Options:
+        * -i, --secret-id
+            ID of the secret for which the tag will be created
+
+    get-tags      Retrieve all tags of an secret from Amphora
+      Usage: get-tags [options] SECRET_ID
+
+    overwrite-tags      Replace all tags of an secret with new tags
+      Usage: overwrite-tags [options] TAG [TAG...]
+
+			Tag format: <KEY>=<VALUE>
+
+        Options:
+        * -i, --secret-id
+            ID of the related Amphora secret
+
+    get-tag      Retrieve a tag of an secret from Amphora
+      Usage: get-tag [options] TAG_KEY
+        Options:
+        * -i, --secret-id
+            ID of the related Amphora secret
+
+    update-tag      Updates the value of an secret's tag. If a tag with the
+					same key is not already present at the secret, it
+					will be created.
+      Usage: update-tag [options] TAG
+
+			Tag format: <KEY>=<VALUE>
+
+        Options:
+        * -i, --secret-id
+            ID of the related Amphora secret
+
+    delete-tag      Delete a tag from an secret from Amphora
+      Usage: delete-tag [options] TAG_KEY
+        Options:
+        * -i, --secret-id
+            ID of the Amphora secret
+
+    delete-secrets      Delete an secret from Amphora
+      Usage: delete-secrets [options] SECRET_ID [SECRET_ID...]
+
+			Although it is mandatory to define at least one Secret-ID to be
+			deleted, IDs might also be passed on StdIn (separated by new line)
+			 if omitted on command.
+
+
+

@@ -1,0 +1,9 @@
+Performs a log in to the configured Carbyne Stack virtual cloud providers using OAuth2. 
+ 
+ OAuth2 parameters (client identifier and callback URL) can be specified using the Carbyne Stack CLI configuration command. 
+ 
+ The command will only work on systems where a browser is available that can be used to acquire user consent. 
+ If this is not the case in your setting (e.g. your system is headless), you can perform the login using the same 
+ configuration on an auxiliary machine and then copy the generated configuration from the auxiliary to the original machine. 
+ 
+ The tokens are written to '~/.cs/access-tokens.json'.

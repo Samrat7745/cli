@@ -1,0 +1,46 @@
+Usage: cs castor [options] [command] [command options]
+  Options:
+    --access-token-file
+      File used instead of reading the access tokens
+	  from "~/.cs/access-tokens.json".
+    --config-file
+      Configuration file used instead of reading the default configuration
+	  from "~/.cs/config".
+    --debug
+      Set log level to debug.
+    --help
+      Displays this help message.
+  Commands:
+    upload-tuple      Upload a tuple file to Castor Service
+      Usage: upload-tuple [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+          -i, --chunk-id
+            Unique identifier as to be used by Castor
+			Default: <Random UUID>
+        * -f, --tuple-file
+            Tuple file path
+        * -t, --tuple-type
+            Tuple type, e.g., MULTIPLICATION_TRIPLE_GFP
+
+    get-telemetry      Download telemetry data
+      Usage: get-telemetry [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+          -i, --interval
+            Interval in seconds to get the telemetry data for
+
+    activate-chunk      Upload a tuple file to Castor Service
+      Usage: activate-chunk [options] PROVIDER_ID
+
+			Provider-ID as given by the configuration
+
+        Options:
+        * -i, --chunk-id
+            Unique identifier of the tuple chunk
+
+
